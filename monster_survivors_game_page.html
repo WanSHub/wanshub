@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>怪物幸存者 - 刺激的在线生存游戏 | WansHub游戏平台</title>
+    <meta name="description" content="怪物幸存者是一款惊险刺激的在线生存游戏，在危险的世界中与各种怪物战斗，考验你的生存技能。免费畅玩，支持PC和手机，无需下载。">
+    <meta name="keywords" content="怪物幸存者,在线游戏,生存游戏,免费游戏,网页游戏,动作游戏,WansHub,怪物战斗">
+    <meta name="author" content="WansHub">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="怪物幸存者 - 刺激的在线生存游戏">
+    <meta property="og:description" content="在危险的世界中生存，与怪物战斗，挑战你的极限！">
+    <meta property="og:url" content="https://wanshub.com/games/monster-survivors">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="WansHub">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="怪物幸存者 - 刺激的在线生存游戏">
+    <meta name="twitter:description" content="在危险的世界中生存，与怪物战斗，挑战你的极限！">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://wanshub.com/games/monster-survivors">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" as="document">
+    
+    <style>
+        /* CSS Reset and Base Styles */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Apple Color Palette */
+            --primary-blue: #007AFF;
+            --secondary-purple: #5856D6;
+            --accent-green: #34C759;
+            --warning-orange: #FF9500;
+            --danger-red: #FF3B30;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --background-primary: #FFFFFF;
+            --background-secondary: #F2F2F7;
+            --background-tertiary: #F5F7FA;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --shadow-heavy: 0 15px 50px rgba(0, 0, 0, 0.15);
+            --gradient-primary: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
+            --gradient-background: linear-gradient(135deg, #F5F7FA 0%, #C3CFE2 100%);
+            --border-radius-small: 12px;
+            --border-radius-medium: 20px;
+            --border-radius-large: 24px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--gradient-background);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius-large);
+            padding: 3rem;
+            box-shadow: var(--shadow-heavy);
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-medium);
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 122, 255, 0.4);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(247, 247, 247, 0.8);
+            padding: 2rem 1.5rem;
+            border-radius: var(--border-radius-medium);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Game Section */
+        .game-section {
+            margin: 4rem 0;
+        }
+
+        .game-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius-large);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-heavy);
+            position: relative;
+        }
+
+        .game-frame {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: var(--border-radius-medium);
+            box-shadow: var(--shadow-medium);
+            background: #f8f9fa;
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: var(--border-radius-large);
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow-medium);
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.05), rgba(88, 86, 214, 0.05));
+            padding: 2rem;
+            border-radius: var(--border-radius-medium);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 122, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            filter: grayscale(0.2);
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-block {
+            background: rgba(247, 247, 247, 0.6);
+            padding: 2rem;
+            border-radius: var(--border-radius-medium);
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .info-block h3 {
+            color: var(--primary-blue);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .info-value {
+            color: var(--text-secondary);
+            text-align: right;
+        }
+
+        /* Tips Section */
+        .tips-container {
+            margin: 2.5rem 0;
+        }
+
+        .tip-block {
+            background: linear-gradient(135deg, rgba(52, 199, 89, 0.1), rgba(0, 122, 255, 0.1));
+            padding: 2rem;
+            border-radius: var(--border-radius-medium);
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .tip-title {
+            color: var(--accent-green);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .tip-content {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .controls-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .controls-list li {
+            padding: 0.8rem 0;
+            display: flex;
+            align-items: center;
+            color: var(--text-secondary);
+        }
+
+        .controls-list li::before {
+            content: '🎮';
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(29, 29, 31, 0.98);
+            backdrop-filter: blur(20px);
+            color: #F5F5F7;
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section {
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-blue);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+            padding: 0.3rem 0;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-blue);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #424245;
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        /* Loading Animation */
+        .loading-spinner {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(0, 122, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary-blue);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-message {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 3rem;
+            color: var(--danger-red);
+            background: rgba(255, 59, 48, 0.1);
+            border-radius: var(--border-radius-medium);
+            border: 1px solid rgba(255, 59, 48, 0.2);
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 1rem 0;
+                border-top: 1px solid var(--border-color);
+                gap: 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-link {
+                padding: 1rem 2rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-container {
+                padding: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .game-frame {
+                height: 400px;
+            }
+
+            .content-section {
+                padding: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-container {
+                padding: 1.5rem;
+            }
+
+            .game-frame {
+                height: 320px;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        /* Focus styles for accessibility */
+        .nav-link:focus,
+        .cta-button:focus,
+        .footer-link:focus {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 2px;
+        }
+
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            :root {
+                --text-primary: #000000;
+                --text-secondary: #333333;
+                --border-color: #000000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="https://wanshub.com" class="logo" aria-label="WansHub首页">WansHub</a>
+                <button class="mobile-menu-toggle" aria-label="打开菜单" aria-expanded="false">
+                    ☰
+                </button>
+                <nav>
+                    <ul class="nav-menu" role="menubar">
+                        <li role="none"><a href="https://wanshub.com" class="nav-link" role="menuitem">首页</a></li>
+                        <li role="none"><a href="https://wanshub.com/games" class="nav-link" role="menuitem">游戏大厅</a></li>
+                        <li role="none"><a href="https://wanshub.com/categories" class="nav-link" role="menuitem">游戏分类</a></li>
+                        <li role="none"><a href="https://wanshub.com/about" class="nav-link" role="menuitem">关于我们</a></li>
+                        <li role="none"><a href="https://wanshub.com/contact" class="nav-link" role="menuitem">联系我们</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-container">
+                    <h1 class="hero-title">怪物幸存者</h1>
+                    <p class="hero-subtitle">在充满危险的末世废土中生存下去，面对凶猛的怪物群体，运用智慧与勇气建立你的生存基地。这是一场考验策略、反应和毅力的终极生存挑战！</p>
+                    <a href="#game" class="cta-button" aria-label="开始游戏">🎮 立即开始冒险</a>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-number" data-target="150000">0</span>
+                            <span class="stat-label">全球玩家</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number" data-target="4.9">0</span>
+                            <span class="stat-label">用户评分</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number" data-target="80">0</span>
+                            <span class="stat-label">游戏关卡</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">免费</span>
+                            <span class="stat-label">完全免费</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Section -->
+        <section id="game" class="game-section">
+            <div class="container">
+                <div class="game-container">
+                    <h2 class="section-title">开始你的生存之旅</h2>
+                    <p class="section-description">点击下方游戏窗口即可开始你的怪物幸存者冒险。游戏完全在浏览器中运行，支持键盘鼠标和触屏操作，无需下载安装任何软件。</p>
+                    
+                    <div id="game-loading" class="loading-message">
+                        <div class="loading-spinner"></div>
+                        <p style="margin-top: 1rem;">游戏正在加载中，请稍候...</p>
+                    </div>
+                    
+                    <iframe 
+                        id="game-iframe"
+                        src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" 
+                        class="game-frame"
+                        title="怪物幸存者在线游戏"
+                        allowfullscreen
+                        style="display: none;">
+                        您的浏览器不支持iframe功能，建议使用Chrome、Firefox或Safari等现代浏览器。
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Features -->
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-title">游戏特色亮点</h2>
+                <p class="section-description">怪物幸存者融合了动作、策略和生存元素，为玩家提供紧张刺激且富有挑战性的游戏体验。</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎮</div>
+                        <div class="feature-title">简单易上手</div>
+                        <div class="feature-description">直观的操作界面和新手引导系统，让任何玩家都能快速掌握游戏核心机制，轻松开始生存冒险。</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚔️</div>
+                        <div class="feature-title">激烈战斗系统</div>
+                        <div class="feature-description">面对数十种不同类型的怪物，每种都有独特的攻击模式，需要制定相应的战斗策略。</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏗️</div>
+                        <div class="feature-title">建造与升级</div>
+                        <div class="feature-description">收集资源建造防御工事，升级武器装备，打造属于你的生存基地和强大装备。</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <div class="feature-title">成就系统</div>
+                        <div class="feature-description">完成各种挑战任务，解锁专属成就徽章，获得珍贵奖励和独特称号。</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <div class="feature-title">跨平台兼容</div>
+                        <div class="feature-description">完美支持PC桌面端和移动设备，随时随地享受游戏乐趣，进度云端同步。</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <div class="feature-title">丰富的游戏世界</div>
+                        <div class="feature-description">探索多个独特的地图环境，每个区域都有不同的挑战和稀有资源等待发现。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Play -->
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-title">游戏操作指南</h2>
+                <p class="section-description">掌握这些基本操作，让你在危险的世界中更好地生存和战斗。</p>
+                
+                <div class="tips-container">
+                    <div class="tip-block">
+                        <div class="tip-title">🎯 基础控制操作</div>
+                        <div class="tip-content">
+                            <ul class="controls-list">
+                                <li>使用 WASD 键或方向键控制角色移动</li>
+                                <li>鼠标左键或空格键进行攻击和互动</li>
+                                <li>鼠标右键进行瞄准或特殊技能</li>
+                                <li>Tab 键打开物品栏和角色面板</li>
+                                <li>ESC 键暂停游戏或打开主菜单</li>
+                                <li>E 键拾取物品和使用道具</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tip-block">
+                        <div class="tip-
